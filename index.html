@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #11101d;
+        }
+        form{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+           
+        }
+        input,textarea{
+            width:500px;
+            margin: 10px 0;
+            padding: 10px;
+            outline: none;
+            border-radius: 5px;
+            border: none;
+        }
+        button{
+            padding: 7px 20px;
+            letter-spacing: 2px;
+            border-radius: 5px;
+            background-color: #fff;
+            border: none;
+        }
+        h1{
+           font-size: 1.5em;
+           color: #fff;
+        }
+        .container{
+            position: relative;
+            width: 700px;
+            background-color: #fff;
+            height: 400px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #000;
+            padding: 50px;
+            display: none;
+        }
+        .btn{
+            padding: 10px 20px;
+            position: absolute;
+            bottom: 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+        }
+        #text,#textMessage{
+            font-size: 1.2em;
+        }
+        #textMessage{
+            color:  #11101d;
+            font-size: 15px;
+        }
+        .container div:nth-child(1),h4 {
+            margin-bottom: 20px;
+        }
+        h4{
+            color: #777;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <form id="form" action="" method="post">
+        <h1>PREENCHA O FORMULARIO</h1>
+        <input type="text" name="nomeUser" id="nomeuser" placeholder="Digite o Nome Usuario">
+        <input type="email" name="emailUser" id="emailuser" placeholder="Digite o Email">
+        <textarea rows="5" id="message" placeholder="Message"></textarea>
+        <button type="submit" id="submit">Send Message</button>
+    </form>
+
+    <div class="container">
+        <div id="text">Boa Tarde Senhor : </div> 
+        <h4>A sua Mensagem foi</h4>
+        <div id="textMessage"></div> 
+        <a href="" class="btn">Voltar Para Formulario</a>
+    </div>
+   
+
+    <script>
+
+        var nome = document.getElementById('nomeuser');
+        var email = document.getElementById('emailuser');
+        var message = document.getElementById('message');
+        var form = document.getElementById('form');
+        var btn = document.getElementById('submit');
+        var text = document.getElementById('text');
+        var conataner = document.querySelector('.container');
+        var textMessage = document.getElementById('textMessage');
+
+        btn.addEventListener('click',function(event){
+            event.preventDefault();
+
+            form.style.display="none";
+            conataner.style.display="block";
+            
+            text.innerHTML+= " "+nome.value;
+            textMessage.innerHTML+= message.value;
+        })
+
+    </script>
+</body>
+</html>
